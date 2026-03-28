@@ -3,6 +3,11 @@ const router = Router();
 
 import { createMuxbir, getAllMuxbirlar, deleteMuxbir } from "../controllers/muxbir.controller.js";
 import { addLavha, getBestReporter, getMonthlyStats, getTodayReports, getTopMuxbirlar } from "../controllers/lavha.controller.js";
+import { 
+    getTopMuxbirlarFront, 
+    getMuxbirStatsByTelegram,
+    getMuxbirProfile, 
+} from "../controllers/muxbirfront.controller.js";
 
 // Muxbir routelari
 router.get("/muxbirlar", getAllMuxbirlar);
@@ -16,4 +21,7 @@ router.get("/stats/today", getTodayReports);
 router.get("/stats/monthly", getMonthlyStats);
 router.get("/stats/best", getBestReporter);
 
+router.get("/top", getTopMuxbirlarFront);         
+router.get("/statsfront/:telegramId", getMuxbirStatsByTelegram);   
+router.get("/profile/:telegramId", getMuxbirProfile);   
 export default router;
